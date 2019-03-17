@@ -1,0 +1,42 @@
+{
+  "admin": [
+    {
+      "id": 0,
+      "firstName": "Manish",
+      "lastname": "Thakur",
+      "email": 8628829553,
+      "mobile": "manishthakur1297@gmail.com",
+      "password": "admin",
+      "role": "admin"
+    }
+  ],
+  "employee": [
+    {
+      "id": 2,
+      "firstName": "Pragya",
+      "lastname": "saklani",
+      "email": 9805443269,
+      "mobile": "kdeded@meff.rr",
+      "password": "1",
+      "role": "manager"
+    },
+    {
+      "id": 768940,
+      "firstName": "Manish",
+      "lastName": "Thakur",
+      "email": "manishthakur1297@gmail.com",
+      "mobile": 8628829553,
+      "password": "123456",
+      "role": "manager"
+    },
+    {
+      "id": 11,
+      "firstName": "Sahil",
+      "lastName": "Rana",
+      "email": "fgrger@erger.te",
+      "mobile": 8219042267,
+      "password": "1",
+      "role": "employee"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+<h1>Employee Details</h1>
+<hr>
+
+<fieldset>
+    <legend>Account Details</legend>
+    <form class ="container" [formGroup]="form3" (ngSubmit)="clickUpdate(form3.value)">
+        <div class="loginBlock">
+                  <label for="fname">First Name </label><input type="text" name="fname" [(ngModel)] = "account.firstName" formControlName="fname"> <br>
+        
+                  <label for="lname">Last Name </label><input type="text" name="lname" [(ngModel)] = "account.lastName" formControlName="lname"> <br>
+        
+                  <label for="dob">Date of Birth </label><input type="date" name="dob" [(ngModel)] = "account.dob" formControlName="dob" [attr.disabled]="true"> <br>
+        
+                  <label for="number">Mobile Number</label><input type="number" name="number" [(ngModel)] = "account.number" formControlName="number" [attr.disabled]="true"> <br>
+        
+                  <label for="email">Email </label><input type="email" name="email" [(ngModel)] = "account.email" formControlName="email" [attr.disabled]="true"> <br>
+                  
+                  <label for="address">Address </label><input type="text" name="address" [(ngModel)] = "account.address" formControlName="address"> <br>
+                  
+                  <label for="pwd">Password </label><input type="password" name="pwd" placeholder="Enter Password" formControlName="pwd"> <br>
+                  
+                  <label for="Cpwd">Confirm Password</label><input type="password" name="Cpwd" placeholder="Confirm Password" formControlName="Cpwd"> <br>
+        
+                  <input type="submit" value="Update" [disabled]="!form3.valid">
+                  
+                  <input type="button" value="Cancel">
+                  
+                
+          </div>
+      </form>	
+  </fieldset>
