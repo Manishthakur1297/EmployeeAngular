@@ -10,6 +10,7 @@ import { DeleteComponent } from './admin/delete/delete.component';
 import { DisplayComponent } from './admin/display/display.component';
 import { AccountComponent } from './manager/account/account.component';
 import { IncrementComponent } from './manager/increment/increment.component';
+import { RoleGuard } from '../guards/role-guard.service';
 
 export const dashboardroutes : Routes = 
 [
@@ -25,11 +26,13 @@ export const dashboardroutes : Routes =
                 path : '',
                 component : LayoutComponent
             },
-            
+
             {
 
                 path : 'Admin',
                 component : AdminComponent,
+                canActivate: [RoleGuard],
+                data: {role: 'Admin'},
                 children :
                 [
                     {

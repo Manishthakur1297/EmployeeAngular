@@ -46,9 +46,6 @@ export class LoginComponent implements OnInit {
     }
       clickLogin(f)
       {
-
-        //console.log("Role : "+f.role);
-        //console.log("Id : "+f.uID);
         
         this.rs.getUser(f.uID,f.role)
         .subscribe
@@ -56,20 +53,26 @@ export class LoginComponent implements OnInit {
           (response) => 
           {
             console.log(f);
-            this.auth.login(f.role);
-            this.auth.setId(f.uID);
-            //this.auth.setRole(f.role);
-            this.router.navigate([""]);
-
+            if(f.password == response.password)
+            {
+              this.auth.login(f.role);
+              this.auth.setId(f.uID);
+              //this.auth.setRole(f.role);
+              this.router.navigate([""]);
+            }
+            else
+            {
+              console.log("User Id and Password do not match...");
+              alert("User Id and Password do not match...");
+            }
           },
           (error) =>
           {
-            console.log("Error occured" + error);
+            console.log("User Id doesn't exist..." + error);
+            alert("User Id doesn't exist...");
           }
 
         )
-        // this.lc.setLogin(true);
-        // this.router.navigate(["./"]);
         console.log(f);
       }
 
