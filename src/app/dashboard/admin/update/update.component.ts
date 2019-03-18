@@ -16,7 +16,7 @@ export class UpdateComponent implements OnInit {
   { }
 
   display : boolean = false;
-  account : Employee = new Employee("","","","","","","");
+  account : Employee = new Employee("","","","","","","","");
 
   form3 : FormGroup;
   
@@ -67,6 +67,14 @@ export class UpdateComponent implements OnInit {
           ]
         )),
 
+        salary : new FormControl("", Validators.compose
+        (
+          [
+            Validators.required
+          ]
+        )),
+
+
         pwd: new FormControl("", Validators.compose
         (
           [
@@ -87,9 +95,9 @@ export class UpdateComponent implements OnInit {
   }
 
 
-  getEmployee(id)
+  getEmployee(id,role)
   {
-    this.rs.getUser(id).
+    this.rs.getUser(id, role).
     subscribe
     (
       (response)=>
@@ -111,10 +119,10 @@ export class UpdateComponent implements OnInit {
   updateEmployee(f)
     {
       console.log(f.number);
-      let c1 = new Employee(f.uID, f.fname, f.lname, f.number,f.email,f.role,f.pwd);
+      let c1 = new Employee(f.uID, f.fname, f.lname, f.number,f.email,f.role,f.salary,f.pwd);
       console.log(c1);
       
-      this.rs.updateUser(c1, f.uID)
+      this.rs.updateUser(c1, f.uID, f.role)
       .subscribe
       (
         (response : any)=>

@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Employee } from 'src/app/Employee';
 import { Router } from '@angular/router';
 import { RestService } from 'src/app/Services/rest.service';
 import { AuthService } from 'src/app/Services/auth.service';
+import { Employee } from 'src/app/Employee';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-employee',
-  templateUrl: './employee.component.html',
-  styleUrls: ['./employee.component.css']
+  selector: 'app-account',
+  templateUrl: './account.component.html',
+  styleUrls: ['./account.component.css']
 })
-export class EmployeeComponent implements OnInit {
+export class AccountComponent implements OnInit {
 
   constructor(private router: Router, private rs : RestService, private auth : AuthService) 
   {
@@ -79,7 +79,6 @@ export class EmployeeComponent implements OnInit {
         (
           [
             Validators.required
-            //Validators.pattern("/^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$/")
           ]
         )),
 
@@ -131,13 +130,6 @@ export class EmployeeComponent implements OnInit {
               alert("Record with id "+f.uID+" does not exists!!!");
           }
     )
-  }
-
-
-  logout()
-  {
-      this.auth.clear();
-      this.router.navigate(["./login"]);
   }
 
 }

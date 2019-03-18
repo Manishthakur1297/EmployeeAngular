@@ -1,14 +1,3 @@
-<h1>Employee Portal</h1>
-<hr>
-
-<div class="navigation-bar">
-        <div id="navigation-container">
-            <ul> 
-                <li><button type="button" (click)="logout()">LOGOUT</button></li>
-            </ul>
-    </div>
-</div>
-
 <fieldset>
     <legend>Account Details</legend>
         <form class ="container" [formGroup]="form3" (ngSubmit)="clickUpdate(form3.value)">

@@ -16,9 +16,9 @@ export class DeleteComponent implements OnInit {
   ngOnInit() {
   }
 
-  deleteEmployee(id)
+  deleteEmployee(id, role)
   {
-    this.rs.deleteUser(id)
+    this.rs.deleteUser(id, role)
     .subscribe
     (
       (response)=>

@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
         //console.log("Role : "+f.role);
         //console.log("Id : "+f.uID);
         
-        this.rs.getUser(f.uID)
+        this.rs.getUser(f.uID,f.role)
         .subscribe
         (
           (response) => 
@@ -58,6 +58,7 @@ export class LoginComponent implements OnInit {
             console.log(f);
             this.auth.login(f.role);
             this.auth.setId(f.uID);
+            //this.auth.setRole(f.role);
             this.router.navigate([""]);
 
           },

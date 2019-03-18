@@ -22,12 +22,12 @@ export class AuthService {
 
   getId()
   {
-    return this.id;
+    return localStorage.getItem('id');
   }
 
   setId(i)
   {
-    this.id = i;
+    localStorage.setItem('id', i);
   }
 
   getDashboard()

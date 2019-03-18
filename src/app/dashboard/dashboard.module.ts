@@ -14,9 +14,11 @@ import { CreateComponent } from './admin/create/create.component';
 import { UpdateComponent } from './admin/update/update.component';
 import { DeleteComponent } from './admin/delete/delete.component';
 import { DisplayComponent } from './admin/display/display.component';
+import { AccountComponent } from './manager/account/account.component';
+import { IncrementComponent } from './manager/increment/increment.component';
 
 @NgModule({
-  declarations: [AdminComponent, EmployeeComponent, ManagerComponent, LayoutComponent, CreateComponent, UpdateComponent, DeleteComponent, DisplayComponent],
+  declarations: [AdminComponent, EmployeeComponent, ManagerComponent, LayoutComponent, CreateComponent, UpdateComponent, DeleteComponent, DisplayComponent, AccountComponent, IncrementComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(dashboardroutes),

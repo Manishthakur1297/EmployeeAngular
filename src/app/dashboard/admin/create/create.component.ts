@@ -15,7 +15,12 @@ export class CreateComponent implements OnInit {
   constructor(private router: Router, private rs : RestService, private auth : AuthService) 
   { }
 
+
+  pass : string = "1234";
+
   form3 : FormGroup;
+
+  sal : number;
   
   ngOnInit() 
   {
@@ -39,25 +44,32 @@ export class CreateComponent implements OnInit {
         lname: new FormControl("", Validators.compose
         (
           [
-            Validators.required
+            //Validators.required
           ]
         )),
 
         number: new FormControl("", Validators.compose
         (
           [
-            Validators.required
+            //Validators.required
           ]
         )),
 
         email: new FormControl("", Validators.compose
         (
           [
-            Validators.required
+            //Validators.required
           ]
         )),
 
         role : new FormControl("", Validators.compose
+        (
+          [
+            Validators.required
+          ]
+        )),
+
+        salary: new FormControl("", Validators.compose
         (
           [
             Validators.required
@@ -69,28 +81,46 @@ export class CreateComponent implements OnInit {
           [
             Validators.required
           ]
-        )),
-
-        Cpwd: new FormControl("",Validators.compose
-        (
-          [
-              Validators.required
-              //PasswordValidation.MatchPassword
-          ]
         ))
+
+        // Cpwd: new FormControl("",Validators.compose
+        // (
+        //   [
+        //       Validators.required
+        //       //PasswordValidation.MatchPassword
+        //   ]
+        // ))
       });
     
-
-  }
+    }
  
+
+  abc(t1)
+  {
+    if(t1=="Employee")
+    {
+      this.sal = 20000;
+    }
+    else if(t1=="Manager")
+    {
+      this.sal = 80000;
+    }
+    else if(t1=="Admin")
+    {
+      this.sal = 120000;
+    }
+
+
+    
+  }
 
   createEmployee(f)
     {
       console.log(f.number);
-      let c1 = new Employee(f.uID, f.fname, f.lname, f.number,f.email,f.role,f.pwd);
+      let c1 = new Employee(f.uID, f.fname,f.lname,f.email,f.number,f.role,f.salary,f.pwd);
       console.log(c1);
       
-      this.rs.postUser(c1)
+      this.rs.postUser(c1, f.role)
       .subscribe
       (
         (response : any)=>

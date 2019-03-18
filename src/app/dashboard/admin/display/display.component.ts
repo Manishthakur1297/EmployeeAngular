@@ -14,21 +14,22 @@ export class DisplayComponent implements OnInit {
   constructor(private router: Router, private rs : RestService, private auth : AuthService) 
   { }
 
-  columns = ["User Id","First Name","Last Name", "Email", "Mobile", "Role"];
-  index = ["id", "firstName", "lastName", "email", "mobile", "role"];
-  account : Employee = new Employee("","","","","","","");
-  emp = [];
+  columns = ["User Id","First Name","Last Name", "Email", "Mobile", "Salary", "Role"];
+  index = ["id", "firstName", "lastName", "email", "mobile", "salary","role"];
+  account : Employee = new Employee("","","","","","","","");
+  empE = [];
+  empM = [];
 
   ngOnInit() {
 
-    this.rs.getAllUsers()
+    this.rs.getAllUsers("Employee")
     .subscribe
     (
       (response)=>
       {
         console.log(response);
-        this.emp = response;
-        console.log(this.emp[1]);
+        this.empE = response;
+        console.log(this.empE[1]);
       },
 
       (error)=>
@@ -36,6 +37,23 @@ export class DisplayComponent implements OnInit {
         console.log(error);
       }
     )
+
+    this.rs.getAllUsers("Manager")
+    .subscribe
+    (
+      (response)=>
+      {
+        console.log(response);
+        this.empM = response;
+        console.log(this.empM[1]);
+      },
+
+      (error)=>
+      {
+        console.log(error);
+      }
+    )
+
 
   }
 

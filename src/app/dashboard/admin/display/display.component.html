@@ -1,36 +1,21 @@
 <h1>Employee Details</h1>
 <hr>
-<!-- 
-<table>
-    <tr>
-      <th>User ID</th>
-      <th>Firstname</th>
-      <th>Last Name</th>
-      <th>Email</th>
-      <th>Mobile</th>
-      <th>Role</th>
-    </tr>
-    <tr>
-      <td>Finn</td>
-      <td>10</td>
-    </tr>
-  </table> -->
 
-  <table>
+<table id="customers">
       <tr>
         <th *ngFor="let col of columns">
           {{col}}
         </th>
       </tr>
-      <tr *ngFor="let e of emp">
+      <tr *ngFor="let e of empE">
+        <td *ngFor="let col of index">
+          {{e[col]}}
+        </td>
+      </tr>
+
+      <tr *ngFor="let e of empM">
         <td *ngFor="let col of index">
           {{e[col]}}
         </td>
       </tr>
     </table>
-
-<!-- <div *ngFor="let e of emp">
-  <li>
-    {{e.id}} {{e.firstName}} {{e.lastName}} {{e.email}} {{e.mobile}} {{e.role}}
-  </li>
-</div> -->

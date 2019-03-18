@@ -8,6 +8,8 @@ import { CreateComponent } from './admin/create/create.component';
 import { UpdateComponent } from './admin/update/update.component';
 import { DeleteComponent } from './admin/delete/delete.component';
 import { DisplayComponent } from './admin/display/display.component';
+import { AccountComponent } from './manager/account/account.component';
+import { IncrementComponent } from './manager/increment/increment.component';
 
 export const dashboardroutes : Routes = 
 [
@@ -20,7 +22,13 @@ export const dashboardroutes : Routes =
 
             {
 
-                path : 'admin',
+                path : '',
+                component : LayoutComponent
+            },
+            
+            {
+
+                path : 'Admin',
                 component : AdminComponent,
                 children :
                 [
@@ -53,13 +61,30 @@ export const dashboardroutes : Routes =
             },
 
             {
-                path : 'employee',
+                path : 'Employee',
                 component : EmployeeComponent
             },
 
             {
-                path : 'manager',
-                component : ManagerComponent
+                path : 'Manager',
+                component : ManagerComponent,
+                children :
+                [
+
+                    {
+                        path : '',
+                        component : AccountComponent
+                    },
+                    {
+                        path : 'account',
+                        component : AccountComponent,
+                    },
+
+                    {
+                        path : 'increment',
+                        component : IncrementComponent,
+                    }
+                ]
             },
             
 
