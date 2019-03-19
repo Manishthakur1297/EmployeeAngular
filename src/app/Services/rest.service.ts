@@ -12,13 +12,13 @@ export class RestService {
 
   constructor(private http : Http) { }
 
-  url : string = "http://localhost:3000/";
+  // url : string = "http://localhost:3000/";
 
-  employeeUrl : string = "http://localhost:3000/Employee/";
+  // employeeUrl : string = "http://localhost:3000/Employee/";
 
-  // url : string = "https://my-json-server.typicode.com/Manishthakur1297/EmployeeAngular/";
+  url : string = "https://my-json-server.typicode.com/Manishthakur1297/EmployeeAngular/";
 
-  // employeeUrl : string = "https://my-json-server.typicode.com/Manishthakur1297/EmployeeAngular/Employee/";
+  employeeUrl : string = "https://my-json-server.typicode.com/Manishthakur1297/EmployeeAngular/Employee/";
 
   UID : any ;
 
