@@ -11,7 +11,7 @@
 <button type="button" (click)="getEmployee(id.value, role.value)">Get Employee</button>
 
 <div *ngIf="display">
-
+<hr>
  <fieldset>
     <legend>Update</legend>
     <form class ="container" [formGroup]="form3" (ngSubmit)="updateEmployee(form3.value)">
@@ -28,14 +28,14 @@
                   <label for="email">Email </label><input type="email" name="email" [(ngModel)] = "account.email" formControlName="email"> <br>
                   
                   <label for="role">Role</label>
-                  <select [(ngModel)] = "account.role"  name = "role" formControlName="role">
-                        <option value="" selected disabled hidden>Choose here</option>
-                    <option value="employee" selected>Employee</option>
+                  <select name = "role" formControlName="role">
+                        <option value="" selected disabled hidden>{{account.role}}</option>
+                    <option value="employee">Employee</option>
                     <option value="manager">Manager</option>
                     <option value="admin">Admin</option>
                   </select><br>
 
-                  <label for="salary">Email </label><input type="number" name="salary" [(ngModel)] = "account.salary" formControlName="salary"> <br>
+                  <label for="salary">Salary </label><input type="number" name="salary" [(ngModel)] = "account.salary" formControlName="salary"> <br>
                   
                   <label for="pwd">Password </label><input type="password" name="pwd" [(ngModel)] = "account.password" placeholder="Enter Password" formControlName="pwd"> <br>
                   

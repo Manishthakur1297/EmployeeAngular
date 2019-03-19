@@ -19,7 +19,7 @@ export class IncrementComponent implements OnInit {
   ngOnInit() {
   }
 
-  increment(id)
+  increment(id, amnt)
   {
     this.rs.incrementSalary(id)
     .subscribe
@@ -28,15 +28,15 @@ export class IncrementComponent implements OnInit {
       {
         this.emp = response;
         let sal : number = parseInt(this.emp.salary);
-        sal+=5000;
+        sal+=amnt;
         this.emp.salary = sal.toString();
         this.rs.updateUser(this.emp,id,this.emp.role)
         .subscribe
         (
           (response)=>
           {
-            console.log("Salary Incremented!!");
-            alert("Salary Incremented !!");
+            console.log("Salary Incremented by amount "+ amnt);
+            alert("Salary Incremented by amount "+ amnt);
           },
           (error)=>
           {

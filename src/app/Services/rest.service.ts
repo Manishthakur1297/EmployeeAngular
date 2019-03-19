@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import 'rxjs/rx';
-import { Response } from '@angular/http/src/static_response';
+import { Http, Response } from '@angular/http';
+
+import { Observable } from 'rxjs/Observable';
+
+import 'rxjs/add/operator/map';
 import { Employee } from '../Employee';
-import { Observable } from 'rxjs/rx';
+//import { Observable } from 'rxjs/rx';
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +34,7 @@ export class RestService {
   {
     console.log(this.url+role+"/"+id);
     return this.http.get(this.url+role+"/"+id)
-    .map((response) => response.json()); 
+    .map((response : any ) => response.json()); 
   }
 
   updateUser(employee : Employee, id, role)
